@@ -1,5 +1,8 @@
 package com.example.pertemuan6.view
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -8,7 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.unit.sp
 import com.example.pertemuan6.R
 
 @Composable
@@ -26,7 +32,18 @@ fun TampilData(
                 title = { Text(text = stringResource(id = R.string.tampil), color = Color.White)},
                 colors = TopAppBarDefaults.mediumTopAppBarColors(containerColor = colorResource(id = R.color.teal_700))
             )
-        }){
+        }){ isiRuang->
+        Column(modifier = Modifier.padding(paddingValues = isiRuang),
+            verticalArrangement = Arrangement.SpaceBetween) {
+            Column(modifier = Modifier.padding(all = dimensionResource(id = R.dimen.padding_small))) {
+                items.forEach { item ->
+                    Column(
+                        Text(text = item.first.uppercase(), fontSize = 16.sp)
+                        Text(text = item.second, fontweight = fontweight.Bold, fontfamily = FontFamily.Cursive, fontsize = 22.sp)
+                }
+                }
+            }
+        }
 
     }
 
