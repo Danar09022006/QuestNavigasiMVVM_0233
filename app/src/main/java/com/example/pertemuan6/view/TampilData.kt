@@ -2,7 +2,12 @@ package com.example.pertemuan6.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -14,6 +19,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pertemuan6.R
 
@@ -39,13 +45,21 @@ fun TampilData(
                 items.forEach { item ->
                     Column(
                         Text(text = item.first.uppercase(), fontSize = 16.sp)
-                        Text(text = item.second, fontweight = fontweight.Bold, fontfamily = FontFamily.Cursive, fontsize = 22.sp)
+                        Text(text = item.second, fontWeight = FontWeight.Bold,
+                        fontfamily = FontFamily.Cursive, fontsize = 22.sp)
                 }
+                HorizontalDivider(thickness = 1.dp, color = Color.Cyan)
                 }
+            Spacer(modifier = Modifier.height(10.dp))
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = onBackBtnClick) {
+                Text(text = stringResource(id = R.string.back))
+            }
+
             }
         }
 
     }
 
 
-}
